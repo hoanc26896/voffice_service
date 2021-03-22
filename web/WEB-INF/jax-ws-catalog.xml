@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system"> -->
+<!--     <system systemId="http://10.60.7.126:8662/passportv3/passportWS?wsdl" uri="wsdl/10.60.7.126_8662/passportv3/passportWS.wsdl"/> -->
+<!--     <system systemId="http://10.60.7.126:8662/passportv3/passportWS?xsd=1" uri="wsdl/10.60.7.126_8662/passportv3/passportWS.xsd_1.xsd"/> -->
+<!--     <system systemId="http://10.58.4.82:5555/RoamingWS?wsdl" uri="wsdl/10.58.4.82_5555/RoamingWS.wsdl"/> -->
+<!--     <system systemId="http://10.58.4.82:5555/RoamingWS?xsd=1" uri="wsdl/10.58.4.82_5555/RoamingWS.xsd_1.xsd"/> -->

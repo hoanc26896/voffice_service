@@ -1,0 +1,3 @@
+--insert menu Phê duyệt thay đổi thành phần tham gia cuộc họp
+
+Insert into "SYS_MENU" (SYS_MENU_ID,CODE,NAME,PATH,URL,PARENT_ID,SORT_ORDER,IMAGE,DESCRIPTION,GENERATED_SORT_ORDER,STATUS,CREATED_DATE,CREATED_BY,UPDATED_DATE,UPDATED_BY,DELETED_BY,DELETED_DATE,DEL_FLAG,KEY_NAME) values (338971,'MEETING_ASSSITANT_CHANGE_MEMBER','Phê duyệt thay đổi thành phần tham gia cuộc họp','/337233/338971/','/view/voffice/meetingAssistant/meetingAsssitantChangeMember.zul',337233,21,'fa-users','Phê duyệt thay đổi thành phần tham gia cuộc họp','/003/021/',1,to_date('11-DEC-19','DD-MON-RR'),470544,to_date('18-DEC-19','DD-MON-RR'),470544,null,null,'0','voffice.menu.phe.duyet.thay.doi.tham.gia.lich.hop');

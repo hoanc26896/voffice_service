@@ -1,0 +1,5 @@
+﻿
+ALTER TABLE MEETING
+  ADD ( PRIVACY  NUMBER(1,0) NULL,
+        "TYPE" NUMBER(1,0) NULL
+	  );

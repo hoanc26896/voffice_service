@@ -1,0 +1,31 @@
+A. Thêm mới vai trò quản lý hồ sơ tài chính trên giao diện web
+	- Quản trị -> Quản lý vai trò -> Thêm mới
+		+ Tên vai trò: Quản lý hồ sơ tài chính
+		+ Mã vai trò: QLHSTC
+B. Thêm mới Menu HỒ SƠ TÀI CHÍNH
+	- Danh mục -> Danh mục menu -> Thêm mới
+		1. HỒ SƠ TÀI CHÍNH: 
+			+ Tên menu: HỒ SƠ TÀI CHÍNH
+			+ Mã menu: HO_SO_TAI_CHINH_MENU
+			+ Đường dẫn icon: fa-money
+		2. Danh sách hồ sơ tài chính
+			+ Tên menu: Danh sách hồ sơ tài chính
+			+ Menu cha: HỒ SƠ TÀI CHÍNH
+			+ Mã menu: HO_SO_TAI_CHINH_MENU_DSHSTC
+			+ Đường dẫn :/view/voffice/financialRecords/listFianancialRecords/records.zul
+			+ Đường dẫn icon: fa-list
+		3. Phân quyền
+			+ Tên menu: Phân quyền
+			+ Menu cha: HỒ SƠ TÀI CHÍNH
+			+ Mã menu: HO_SO_TAI_CHINH_MENU_PQ
+			+ Đường dẫn :/view/voffice/financialRecords/roles/financialRecordsRoles.zul
+			+ Đường dẫn icon: fa-user-plus
+C.Gán vai trò hiển thị MENU
+	- Quản trị -> Quản lý vai trò: tìm mã vai trò: ADMIN và QLHSTC
+			-> Gán MENU: Hồ sơ tài chính + Danh sách hồ sơ tài chính + Phân quyền
+
+D. 
+update VOFFICE_EXTRACT.SYS_MENU set KEY_NAME = 'voffice.menu.HO.SO.TAI.CHINH' WHERE CODE = 'HO_SO_TAI_CHINH_MENU'
+update VOFFICE_EXTRACT.SYS_MENU set KEY_NAME = 'voffice.menu.HO.SO.TAI.CHINH.DANH.SACH' WHERE CODE = 'HO_SO_TAI_CHINH_MENU_DSHSTC'
+update VOFFICE_EXTRACT.SYS_MENU set KEY_NAME = 'voffice.menu.HO.SO.TAI.CHINH.PHAN.QUYEN' WHERE CODE = 'HO_SO_TAI_CHINH_MENU_PQ'
+		

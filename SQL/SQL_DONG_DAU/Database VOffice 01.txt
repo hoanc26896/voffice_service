@@ -1,0 +1,84 @@
+--------------------------------------------------------
+--  DDL for Table MARK_ATTACH_HISTORY
+--------------------------------------------------------
+
+  CREATE TABLE "MARK_ATTACH_HISTORY" 
+   (	"MARK_HISTORY_ID" NUMBER(30,0), 
+	"OBJECT_ID" NUMBER(30,0), 
+	"TYPE" NUMBER(1,0), 
+	"EMP_VHR_ID" NUMBER(22,0), 
+	"ORG_VHR_ID" NUMBER(22,0), 
+	"PATH_BEFORE" VARCHAR2(2000 BYTE), 
+	"STORAGE_BEFORE" VARCHAR2(2000 BYTE), 
+	"ATTACH_ID" NUMBER(30,0), 
+	"DOC_IN_BRIEF" NUMBER(30,0), 
+	"DEL_FLAG" NUMBER(1,0)
+   ) ;
+--------------------------------------------------------
+--  DDL for Index MARK_ATTACH_HISTORY_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MARK_ATTACH_HISTORY_PK" ON "MARK_ATTACH_HISTORY" ("MARK_HISTORY_ID") 
+  ;
+--------------------------------------------------------
+--  Constraints for Table MARK_ATTACH_HISTORY
+--------------------------------------------------------
+
+  ALTER TABLE "MARK_ATTACH_HISTORY" ADD CONSTRAINT "MARK_ATTACH_HISTORY_PK" PRIMARY KEY ("MARK_HISTORY_ID")
+  USING INDEX  ENABLE;
+  ALTER TABLE "MARK_ATTACH_HISTORY" MODIFY ("MARK_HISTORY_ID" NOT NULL ENABLE);
+  
+--------------------------------------------------------
+--  DDL for Alter Table TEXT_MARK
+--------------------------------------------------------
+
+  ALTER TABLE TEXT_MARK ADD "CANCEL_ID" NUMBER(22) NULL;
+  ALTER TABLE TEXT_MARK ADD "CANCEL_DATE" DATE NULL;
+  ALTER TABLE TEXT_MARK ADD "DOCUMENT_ID" NUMBER(22) NULL;
+  ALTER TABLE TEXT_MARK ADD "GROUP_ID " NUMBER(22) NULL;
+
+--------------------------------------------------------
+--  DDL for Table MARK_LOCATION
+--------------------------------------------------------
+
+  CREATE TABLE "MARK_LOCATION" 
+   (	"MARK_LOCATION_ID" NUMBER(30,0), 
+	"PAGE" NUMBER(6,0), 
+	"X" NUMBER(30,24), 
+	"Y" NUMBER(30,24), 
+	"NOTE_TIME" DATE, 
+	"CREATE_DATE" DATE, 
+	"CREATOR_ID" NUMBER(30,0), 
+	"ORG_ID" NUMBER(30,0), 
+	"STATUS" NUMBER(2,0), 
+	"TYPE_FILE" NUMBER(2,0), 
+	"FILE_ID" NUMBER(30,0), 
+	"OBJECT_ID" NUMBER(30,0), 
+	"DOC_IN_BRIEF" NUMBER(30,0), 
+	"GROUP_TYPE" NUMBER(1,0), 
+	"HIGHT" NUMBER(30,24), 
+	"WIDTH" NUMBER(30,24), 
+	"DEL_FLAG" NUMBER(1,0)
+   ) ;
+--------------------------------------------------------
+--  DDL for Index MARK_LOCATION_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MARK_LOCATION_PK" ON "MARK_LOCATION" ("MARK_LOCATION_ID") 
+  ;
+--------------------------------------------------------
+--  Constraints for Table MARK_LOCATION
+--------------------------------------------------------
+
+  ALTER TABLE "MARK_LOCATION" ADD CONSTRAINT "MARK_LOCATION_PK" PRIMARY KEY ("MARK_LOCATION_ID")
+  USING INDEX  ENABLE;
+  ALTER TABLE "MARK_LOCATION" MODIFY ("MARK_LOCATION_ID" NOT NULL ENABLE);
+  
+  
+--------------------------------------------------------
+--  DDL for Sequence
+--------------------------------------------------------  
+  CREATE SEQUENCE  MARK_LOCATION_SEQ  MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 1 NOCACHE  NOORDER  NOCYCLE ;
+
+  CREATE SEQUENCE  MARK_ATTACH_HISTORY_SEQ  MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 1 NOCACHE  NOORDER  NOCYCLE ;
+

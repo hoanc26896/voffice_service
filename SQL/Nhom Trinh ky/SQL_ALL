@@ -1,0 +1,132 @@
+
+DB2
+
+ALTER TABLE  CV_GROUP
+ADD ("TYPE_ID" NUMBER,
+     "AREA_ID" NUMBER);
+
+--------------------------------------------------------
+--  DDL for Table GROUP_SIGN
+--------------------------------------------------------
+
+  CREATE TABLE "GROUP_SIGN" 
+   (  "GROUP_SIGN_ID" NUMBER, 
+  "GROUP_ID" NUMBER, 
+  "ORG_VHR_ID" NUMBER(22,0), 
+  "ORG_VHR_NAME" NVARCHAR2(2000), 
+  "ROLE_ID" NUMBER(30,0), 
+  "EMP_VHR_ID" NUMBER(22,0), 
+  "SIGN_LEVEL_PARALLEL" NUMBER(3,0), 
+  "SIGN_IMAGE_ID" NUMBER(22,0), 
+  "SIGN_LEVEL" NUMBER(10,0), 
+  "SIGN_IMAGE" NUMBER(3,0), 
+  "IS_PUBLISH" NUMBER(1,0), 
+  "CREATED_DATE" DATE, 
+  "CREATED_BY" NUMBER(22,0), 
+  "UPDATED_DATE" DATE, 
+  "UPDATED_BY" NUMBER(22,0), 
+  "DELETED_DATE" DATE, 
+  "DELETED_BY" NUMBER(22,0), 
+  "DEL_FLAG" NUMBER(1,0), 
+  "ORDER" NUMBER(10,0)
+   ) ;
+--------------------------------------------------------
+--  Constraints for Table GROUP_SIGN
+--------------------------------------------------------
+
+  ALTER TABLE "GROUP_SIGN" MODIFY ("GROUP_ID" NOT NULL ENABLE);
+  ALTER TABLE "GROUP_SIGN" MODIFY ("GROUP_SIGN_ID" NOT NULL ENABLE);
+
+
+CREATE SEQUENCE GROUP_SIGN_SEQ  MINVALUE 1 MAXVALUE 999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+
+
+DB1
+--------------------------------------------------------
+--  DDL for Table STORE_DOCUMENT_ROLE
+--------------------------------------------------------
+
+  CREATE TABLE "STORE_DOCUMENT_ROLE" 
+   (  "STORE_DOCUMENT_ROLE_ID" NUMBER, 
+  "EMP_ID" NUMBER(30,0), 
+  "STORE_TYPE" NUMBER(30,0), 
+  "PROMULGATE_START" DATE, 
+  "PROMULGATE_END" DATE, 
+  "READ" NUMBER(1,0), 
+  "DOWNLOAD" NUMBER(1,0), 
+  "ORG_ID" VARCHAR2(2000 BYTE), 
+  "DOC_TYPE" VARCHAR2(2000 BYTE), 
+  "IS_ACTIVE" NUMBER(1,0), 
+  "CREATED_BY" NUMBER(30,0), 
+  "UPDATED_BY" NUMBER(30,0), 
+  "CREATED_DATE" DATE, 
+  "UPDATED_DATE" DATE
+   ) ;
+--------------------------------------------------------
+--  DDL for Table STORE_TYPE_CONFIG
+--------------------------------------------------------
+
+  CREATE TABLE "STORE_TYPE_CONFIG" 
+   (  "STORE_TYPE_CONFIG_ID" NUMBER, 
+  "STORE_NAME" VARCHAR2(1000 BYTE), 
+  "APP_CODE" VARCHAR2(1000 BYTE), 
+  "TYPE_AUTO_SIGN" VARCHAR2(1000 BYTE), 
+  "TYPE_VOFFICE" VARCHAR2(1000 BYTE), 
+  "ROLE" VARCHAR2(1000 BYTE)
+   ) ;
+--------------------------------------------------------
+--  DDL for Table STORE_UNFOLOW
+--------------------------------------------------------
+
+  CREATE TABLE "STORE_UNFOLOW" 
+   (  "STORE_UNFOLOW_ID" NUMBER, 
+  "DOCUMENT_ID" NUMBER(30,0), 
+  "EMP_ID" NUMBER(30,0), 
+  "STORE_TYPE" NUMBER(30,0), 
+  "CREATE_DATE" DATE, 
+  "DEL_FLAG" NUMBER(1,0)
+   ) ;
+--------------------------------------------------------
+--  DDL for Index STORE_DOCUMENT_ROLE_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "STORE_DOCUMENT_ROLE_PK" ON "STORE_DOCUMENT_ROLE" ("STORE_DOCUMENT_ROLE_ID") 
+  ;
+--------------------------------------------------------
+--  DDL for Index STORE_TYPE_CONFIG_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "STORE_TYPE_CONFIG_PK" ON "STORE_TYPE_CONFIG" ("STORE_TYPE_CONFIG_ID") 
+  ;
+--------------------------------------------------------
+--  DDL for Index STORE_UNFOLOW_ID_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "STORE_UNFOLOW_ID_PK" ON "STORE_UNFOLOW" ("STORE_UNFOLOW_ID") 
+  ;
+--------------------------------------------------------
+--  Constraints for Table STORE_DOCUMENT_ROLE
+--------------------------------------------------------
+
+  ALTER TABLE "STORE_DOCUMENT_ROLE" ADD CONSTRAINT "STORE_DOCUMENT_ROLE_PK" PRIMARY KEY ("STORE_DOCUMENT_ROLE_ID")
+  USING INDEX  ENABLE;
+  ALTER TABLE "STORE_DOCUMENT_ROLE" MODIFY ("STORE_DOCUMENT_ROLE_ID" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table STORE_TYPE_CONFIG
+--------------------------------------------------------
+
+  ALTER TABLE "STORE_TYPE_CONFIG" ADD CONSTRAINT "STORE_TYPE_CONFIG_PK" PRIMARY KEY ("STORE_TYPE_CONFIG_ID")
+  USING INDEX  ENABLE;
+  ALTER TABLE "STORE_TYPE_CONFIG" MODIFY ("STORE_TYPE_CONFIG_ID" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table STORE_UNFOLOW
+--------------------------------------------------------
+
+  ALTER TABLE "STORE_UNFOLOW" ADD CONSTRAINT "STORE_UNFOLOW_ID_PK" PRIMARY KEY ("STORE_UNFOLOW_ID")
+  USING INDEX  ENABLE;
+  ALTER TABLE "STORE_UNFOLOW" MODIFY ("STORE_UNFOLOW_ID" NOT NULL ENABLE);
+
+
+CREATE SEQUENCE STORE_UNFOLOW_SEQ  MINVALUE 1 MAXVALUE 999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+CREATE SEQUENCE STORE_TYPE_CONFIG_SEQ  MINVALUE 1 MAXVALUE 999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+CREATE SEQUENCE STORE_DOCUMENT_ROLE_SEQ  MINVALUE 1 MAXVALUE 999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;

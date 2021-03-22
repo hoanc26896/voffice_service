@@ -1,0 +1,102 @@
+--------------------------------------------------------
+--  DDL for Table BRIEF_MARK
+--------------------------------------------------------
+
+  CREATE TABLE "BRIEF_MARK" 
+   (	"BRIEF_MARK_ID" NUMBER, 
+	"ORG_ID" NUMBER(30,0), 
+	"ORG_NAME" VARCHAR2(2000 BYTE), 
+	"STATE" NUMBER(1,0), 
+	"NOTE" VARCHAR2(2000 BYTE), 
+	"BRIEF_ID" NUMBER(30,0), 
+	"BRIEF_DOCUMENT_ID" NUMBER(30,0), 
+	"MARKED_DATE" DATE, 
+	"DEL_FLAG" NUMBER(1,0), 
+	"CANCEL_ID" NUMBER(22,0), 
+	"CANCEL_DATE" DATE
+   ) ;
+--------------------------------------------------------
+--  DDL for Index BRIEF_MARK_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "BRIEF_MARK_PK" ON "BRIEF_MARK" ("BRIEF_MARK_ID") 
+  ;
+--------------------------------------------------------
+--  Constraints for Table BRIEF_MARK
+--------------------------------------------------------
+
+  ALTER TABLE "BRIEF_MARK" ADD CONSTRAINT "BRIEF_MARK_PK" PRIMARY KEY ("BRIEF_MARK_ID")
+  USING INDEX  ENABLE;
+  ALTER TABLE "BRIEF_MARK" MODIFY ("BRIEF_MARK_ID" NOT NULL ENABLE);
+
+--------------------------------------------------------
+--  DDL for Table IMAGE_ORG_CONFIG
+--------------------------------------------------------
+
+  CREATE TABLE "IMAGE_ORG_CONFIG" 
+   (	"IMAGE_ORG_CONFIG_ID" NUMBER(30,0), 
+	"ORG_ID" NUMBER(30,0), 
+	"GROUP_TYPE" NUMBER(1,0), 
+	"IMAGE_TYPE" NUMBER(1,0), 
+	"IMAGE_INCLUDE" NUMBER(1,0), 
+	"LABLE" NUMBER(1,0), 
+	"CODE" NUMBER(1,0), 
+	"SIGN_BY" NUMBER(1,0), 
+	"EMAIL" NUMBER(1,0), 
+	"TIME_SIGN" NUMBER(1,0), 
+	"WIDTH" NUMBER(30,0), 
+	"HEIGHT" NUMBER(30,0), 
+	"FONT_SIZE" NUMBER(22,0), 
+	"IS_DEFAULT" NUMBER(1,0), 
+	"CREATE_BY" NUMBER(22,0), 
+	"CREATE_DATE" DATE, 
+	"UPDATE_BY" NUMBER(22,0), 
+	"UPDATE_DATE" DATE, 
+	"DEL_FLAG" NUMBER(1,0)
+   ) ;
+--------------------------------------------------------
+--  DDL for Index IMAGE_ORG_CONFIG_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "IMAGE_ORG_CONFIG_PK" ON "IMAGE_ORG_CONFIG" ("IMAGE_ORG_CONFIG_ID") 
+  ;
+--------------------------------------------------------
+--  Constraints for Table IMAGE_ORG_CONFIG
+--------------------------------------------------------
+
+  ALTER TABLE "IMAGE_ORG_CONFIG" ADD CONSTRAINT "IMAGE_ORG_CONFIG_PK" PRIMARY KEY ("IMAGE_ORG_CONFIG_ID")
+  USING INDEX  ENABLE;
+  ALTER TABLE "IMAGE_ORG_CONFIG" MODIFY ("IMAGE_ORG_CONFIG_ID" NOT NULL ENABLE);
+
+--------------------------------------------------------
+--  DDL for Sequence
+--------------------------------------------------------  
+
+  CREATE SEQUENCE  IMAGE_ORG_CONFIG_SEQ  MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 1 NOCACHE  NOORDER  NOCYCLE ;
+
+  CREATE SEQUENCE  BRIEF_MARK_SEQ  MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 1 NOCACHE  NOORDER  NOCYCLE ;
+
+--------------------------------------------------------
+--  DDL for Alter Table IMAGE_ORG
+--------------------------------------------------------
+
+ALTER TABLE IMAGE_ORG ADD "TYPE" NUMBER(1,0) NULL;
+ALTER TABLE IMAGE_ORG ADD "GROUP_TYPE" NUMBER(1,0) NULL;
+UPDATE IMAGE_ORG SET "GROUP_TYPE" = 1;
+UPDATE IMAGE_ORG SET "TYPE" = 1;
+
+--------------------------------------------------------
+--  DDL for Insert
+--------------------------------------------------------
+
+INSERT INTO SYS_MESS_MUTILANGUAGE ( ID_SMS, CODE_LANGUAGE, "TYPE", CATEGORY, SMS_CONFIG, CONTEN )
+VALUES ( SYS_MESS_MUTILANGUAGE_SEQ.nextval, 'vi', 1, 57, 'D/c van thu DATNV5 da huy dong dau van ban co tieu de: DATNV5. De nghi d/c thuc hien dong dau lai.', 'rollback van ban' );
+
+INSERT INTO SYS_MESS_MUTILANGUAGE ( ID_SMS, CODE_LANGUAGE, "TYPE", CATEGORY, SMS_CONFIG, CONTEN )
+VALUES ( SYS_MESS_MUTILANGUAGE_SEQ.nextval, 'en', 1, 57, 'Archivist DATNV5  has been rollback marked the document with title: DATNV5. Suggest that you make a seal again.', 'rollback van ban' );
+    
+INSERT INTO SYSTEM_PARAMETER ( SYSTEM_PARAMETER_ID, CODE, NAME, VALUE, DESCRIPTION )
+VALUES ( SYSTEM_PARAMETER_seq.nextval, 'LIST_IMAGE_TYPE', 'Cac loai anh con dau', '1,2,3,4,5', 'Cac loai anh con dau' );
+
+INSERT INTO SYSTEM_PARAMETER ( SYSTEM_PARAMETER_ID, CODE, NAME, VALUE, DESCRIPTION )
+VALUES ( SYSTEM_PARAMETER_seq.nextval, 'PROMULGATE_FRAME', 'Cau hinh vi tri khung ban hanh', '2', 'Cau hinh vi tri khung ban hanh: 1 - ben trai, 2 - ben phai');

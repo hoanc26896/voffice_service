@@ -1,0 +1,36 @@
+1. Tạo menu
+
+Vào danh mục menu --> tạo menu:
+
+- Menu cha:
+Tên menu : TÀI LIỆU CÁ NHÂN
+Mã menu: MENU_SAVE_PER_DOC
+Thứ tự: 16
+Đường dẫn icon: fa-menu-quan-ly-nhiem-vu
+Trạng thái: hoạt động
+
+- Menu con:
+Tên menu : Tài liệu cá nhân
+Mã menu: SAVE_PER_DOC
+Menu cha: TÀI LIỆU CÁ NHÂN
+Thứ tự: 1
+Đường dẫn: /view/voffice/savePersonalDoc/savePersonalDoc.zul
+Đường dẫn icon: fa-user-plus
+Trạng thái: hoạt động
+
+---> Cập nhật đa ngôn ngữ menu
+
+chạy sql
+
+Update sys_menu
+set key_name = 'voffice.menu.tai.lieu.ca.nhan.parent'
+where code = 'MENU_SAVE_PER_DOC'
+
+và
+
+Update sys_menu
+set key_name = 'voffice.menu.tai.lieu.ca.nhan.child'
+where code = 'SAVE_PER_DOC'
+
+
+Vào quản lý vai trò: tìm vai trò nhân viên ---> nhấn vào gán menu ở cột vai trò. Tìm 2 menu trên rồi tick. Lưu lại

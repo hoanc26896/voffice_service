@@ -1,0 +1,5 @@
+ALTER TABLE  CV_GROUP
+ADD ("TYPE_ID" NUMBER,
+     "AREA_ID" NUMBER);
+		 
+		 commit;

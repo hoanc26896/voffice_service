@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="phu_luc_chat" language="groovy" pageWidth="595" pageHeight="842" columnWidth="454" leftMargin="99" rightMargin="42" topMargin="70" bottomMargin="56" uuid="de53527b-f058-4bcb-b62b-4dc883b0b84b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="100"/>
+	<parameter name="textTitle" class="java.lang.String"/>
+	<parameter name="signerName" class="java.lang.String"/>
+	<parameter name="isSignatureImage" class="java.io.InputStream"/>
+	<field name="senderEmail" class="java.lang.String"/>
+	<field name="sentTime" class="java.lang.String"/>
+	<field name="content" class="java.lang.String"/>
+	<field name="imageUrl" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="0" y="18" width="454" height="18" uuid="30120694-0bc8-4e15-8c28-093a1bdb340f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Thảo luận về văn bản \"" + $P{textTitle} + "\""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="454" height="18" uuid="002da808-a7fc-4af5-b74f-f97e71117c26"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PHỤ LỤC]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="0" y="0" width="454" height="16" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="1684eb5d-2fd7-4b33-b916-e2b8aa2fd0eb"/>
+				<textElement markup="html">
+					<font fontName="Times New Roman" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b style=\"color:#1975c1;\">" + $F{senderEmail} + "</b> <i>[" + $F{sentTime} + "]</i>: " + ($F{content} != null ? $F{content}.replaceAll("\n","<br>") : "")]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="316">
+			<printWhenExpression><![CDATA[$F{imageUrl} != null]]></printWhenExpression>
+			<image scaleImage="RetainShape">
+				<reportElement x="0" y="0" width="300" height="300" isRemoveLineWhenBlank="true" uuid="5f734f1a-d450-46e7-93e3-5d2aa8519708">
+					<printWhenExpression><![CDATA[$F{imageUrl} != null]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$F{imageUrl}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="118" splitType="Stretch">
+			<staticText>
+				<reportElement x="227" y="0" width="227" height="16" uuid="7fa3de70-f88e-4153-8c86-94a7606d014e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PHÊ DUYỆT]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="227" y="32" width="227" height="20" isRemoveLineWhenBlank="true" uuid="8438444a-20a1-451a-810e-9653c3b96e78"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="13" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{isSignatureImage} == null ? $P{signerName}.toUpperCase() : ""]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="272" y="32" width="136" height="86" isRemoveLineWhenBlank="true" uuid="0efc6d1f-2d64-46bc-80a6-c9107595996d"/>
+				<imageExpression><![CDATA[$P{isSignatureImage}]]></imageExpression>
+			</image>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+        
+    <wb-module deploy-name="voffice-service">
+                
+        <wb-resource deploy-path="/" source-path="/web"/>
+                
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/test/com/viettel/voffice/controler"/>
+                
+        <property name="java-output-path" value="/voffice-service/build/classes"/>
+                
+        <property name="context-root" value="ServiceMobile_V02"/>
+            
+    </wb-module>
+    
+</project-modules>

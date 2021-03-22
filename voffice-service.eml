@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inheritJdk="true">
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<levels>
+		<level name="apache-poi" value="project"/>
+		<level name="javax.servlet-3.0" value="project"/>
+		<level name="commons-logging-1.2" value="project"/>
+		<level name="org-openide-util" value="project"/>
+		<level name="Home" value="project"/>
+	</levels>
+</component>

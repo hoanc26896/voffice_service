@@ -1,0 +1,11 @@
+
+-- insert category 57 & type 4
+-- tao tin nhan chuyen nhiem vu moi
+
+ INSERT INTO SYS_MESS_MUTILANGUAGE (ID_SMS,CODE_LANGUAGE,TYPE,CATEGORY,SMS_CONFIG,CONTEN)
+  VALUES (SYS_MESS_MUTILANGUAGE_SEQ.NEXTVAL,'vi',4,57,'(NVDV) D/c DATNV5 DATNV5 chuyen thuc hien cho DATNV5 nhiem vu: DATNV5.Ly do: DATNV5','Giao nhiem vu cho don vi moi');
+  
+  INSERT INTO SYS_MESS_MUTILANGUAGE (ID_SMS,CODE_LANGUAGE,TYPE,CATEGORY,SMS_CONFIG,CONTEN)
+  VALUES (SYS_MESS_MUTILANGUAGE_SEQ.NEXTVAL,'en',4,57,'(MISSION) Mr/Ms DATNV5 DATNV5 assign to DATNV5 task: DATNV5.Reason: DATNV5','Giao nhiem vu cho don vi moi');
+  
+  
